@@ -1,16 +1,137 @@
-# React + Vite
+# 📚 Personal Book Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Tech Stack
 
-Currently, two official plugins are available:
+* **Frontend:** React+ tailwind
+* **Backend:** Node.js, Express
+* **Database:** MongoDB (Mongoose)
+* **Auth:** JWT-based authentication
+* **State / UI:** React Hooks, Context API, TailwindCSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+##  Core Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. 🔐 Authentication
 
-## Expanding the ESLint configuration
+* User Signup
+* User Login
+* Secure Logout
+* JWT-based auth with protected routes
+* User-specific data isolation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+### 2. 📘 Book Collection Management
+
+Users can:
+
+* Add new books
+* Edit existing books
+* Delete books
+* Filter by:
+
+  * **Status** →
+
+    * 📖 Want to Read
+    * 📘 Reading
+    * ✅ Completed
+  * **Tags** (custom, comma-separated)
+
+Each book includes:
+
+* Title
+* Author
+* Tags
+* Status
+
+
+### 3. 📊 Dashboard
+
+A clean, uncluttered dashboard that surfaces insight:
+
+* Total number of books
+* Count by status
+* Simple filters
+* Editable table of books
+* Ability to update status instantly
+
+
+
+## 🔧 Backend Routes
+
+| Method | Route              | Description                |
+| ------ | ------------------ | -------------------------- |
+| POST   | `/api/auth/signup` | Register user              |
+| POST   | `/api/auth/login`  | Log in user                |
+| GET    | `/api/books`       | Get logged-in user's books |
+| POST   | `/api/books`       | Add new book               |
+| PUT    | `/api/books/:id`   | Update a book              |
+| DELETE | `/api/books/:id`   | Delete a book              |
+
+Each route is protected using JWT.
+
+
+## Project Structure (High-level)
+
+project/
+│── backend/
+│    ├── models/
+│    ├── controllers/
+│    ├── routes/
+│    ├── middelware
+│    └── index.js
+│
+│── frontend/
+     ├── pages/
+     ├── components/
+     ├── context/
+     ├── services/
+     └── styles/
+```
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone <repo-url>
+cd project
+```
+
+### 2️⃣ Install Dependencies
+
+Backend:
+
+```bash
+cd backend
+npm install
+```
+
+Frontend:
+
+```bash
+cd frontend
+npm install
+```
+
+### 3️⃣ Environment Variables
+
+Backend `.env`:
+
+```
+MONGO_URI=your_mongo_uri
+JWT_SECRET=your_secret
+```
+
+### 4️⃣ Start Development Servers
+
+Backend:
+
+```bash
+npm start
+```
+
+Frontend:
+
+```bash
+npm run dev
+```
+
+
